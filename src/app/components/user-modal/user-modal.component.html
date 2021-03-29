@@ -1,0 +1,42 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title" *ngIf="!isNewUserModal">Se connecter</h4>
+  <h4 class="modal-title" id="modal-basic-title" *ngIf="isNewUserModal">Créer un nouvel utilisateur</h4>
+  <button type="button" class="close" aria-label="Close" (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form *ngIf="!isNewUserModal; else elseBlock">
+    <div>
+      <label for="userName" class="form-label">Nom</label><br/>
+      <select class="form-select" id="userName" [(ngModel)]="userName" [ngModelOptions]="{standalone: true}">
+        <option selected value="">Choisir un utilisateur</option>
+        <option *ngFor="let user of getUnconnectedUsersNames()" value="{{ user.name }}">{{ user.name }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Mot de passe</label>
+      <input type="password" class="form-control" id="password" [(ngModel)]="userPassword" [ngModelOptions]="{standalone: true}">
+    </div>
+  </form>
+  <p class="red">{{ errorMessage }}</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="connectUser()" *ngIf="!isNewUserModal">Se Connecter</button>
+  <button type="button" class="btn btn-outline-dark" (click)="isNewUserModal = true" *ngIf="!isNewUserModal">Nouvel Utilisateur ?</button>
+  <button type="button" class="btn btn-outline-dark" (click)="createUser()" *ngIf="isNewUserModal">Créer</button>
+</div>
+
+<ng-template #elseBlock>
+  <form>
+  <div class="mb-3">
+    <label for="userName" class="form-label">Nom</label>
+    <input type="text" class="form-control" id="userName" [(ngModel)]="userName" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Mot de passe</label>
+    <input type="password" class="form-control" id="password" [(ngModel)]="userPassword" aria-describedby="passwordHelp" [ngModelOptions]="{standalone: true}">
+    <div id="passwordHelp" class="form-text">Les mots de passes sont enregistrés dans le navigateur en clair, n'utilisez pas un de vos mots de passe habituel :)</div>
+  </div>
+</form>
+</ng-template>

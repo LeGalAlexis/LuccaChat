@@ -1,0 +1,72 @@
+.container {
+  min-height:100%;
+}
+
+#header {
+  background: #233867;
+  margin:auto;
+  text-align:center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position:absolute;
+  top:0px;
+  left:0px;
+  height:50px;
+  right:0px;
+  overflow:hidden;
+}
+
+#chat-area {
+  position:absolute;
+  top:50px;
+  bottom:200px;
+  left:0px;
+  right:0px;
+  overflow-y:auto;
+  overflow-x: hidden;
+  padding: 15px;
+  background-color: antiquewhite;
+  color: black;
+  margin: 15px;
+  border-radius: 20px;
+  display: block;
+  max-width: 100%;
+}
+
+#messages-area {
+  width:100%;
+  margin:auto;
+  background: #ff6c00;
+  position:absolute;
+  bottom:0px;
+  height:200px;
+  left:0px;
+  right:0px;
+  overflow-y:hidden;
+  overflow-x: scroll;
+  display: inline-block;
+}
+
+app-chat-typingbox {
+  display: inline-block;
+}
+
+.add-user {
+  display: inline-block;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+.typing-container {
+  position: relative;
+  display: inline-flex;
+}
+
+.white {
+  color: white;
+}
+
+.btn.btn-yellow {
+  background-color: #ffad00;
+}

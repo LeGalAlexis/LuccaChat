@@ -1,0 +1,12 @@
+<div class="container typing-card">
+  <div class="row">
+    <b>{{ writer }}</b>
+  </div>
+  <div class="row">
+    <div class="col-10"><textarea class="form-control text-area" [(ngModel)]="messageText"></textarea></div>
+    <div class="col">
+      <div class="row"><button class="btn btn-chat" (click)="sendMessage()">envoyer</button></div>
+      <div class="row"><button class="btn btn-chat" (click)="disconnectUser()">déconnecter</button></div>
+    </div>
+  </div>
+</div>

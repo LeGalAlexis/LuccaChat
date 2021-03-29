@@ -1,0 +1,18 @@
+<div class="container">
+  <div id="header">
+    <b class="white">Lucca Chatting Box</b>
+  </div>
+  <div id="chat-area">
+    <app-chat-window></app-chat-window>
+  </div>
+  <div id="messages-area">
+    <div class="typing-container">
+      <app-chat-typingbox *ngFor="let user of userService.getConnectedUser()" [writer]="user.name"></app-chat-typingbox>
+      <div class="add-user"><button class="btn btn-yellow" (click)="open(content)">+ Chatter</button></div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <app-user-modal (closeEvent)="modal.close()"></app-user-modal>
+</ng-template>
